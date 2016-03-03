@@ -1,0 +1,43 @@
+{#
+ # 404 template
+ # ------------
+ #
+ # This template is loaded whenever Craft cannot figure out how to
+ # respond to an incoming request. No setup is involved to get your
+ # 404 page working; you just need to call it 404.html and put it
+ # at the root of your craft/templates/ folder.
+ #
+ # You can also create 400.html, 403.html, 500.html, and 503.html
+ # templates if you’d like. If Craft can’t find an error template
+ # to match the error code, it will just use the one in
+ # craft/app/templates/ instead.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+{% set title = "404" %}
+
+{% block css %}
+<link rel="stylesheet" href="assets/css/404.css">
+{% endblock %}
+
+{% block main %}
+
+<ul id="menu">
+    <li><a href="http://kellyparks.info#home">Home</a></li>
+    <li><a href="http://kellyparks.info#about">About</a></li>
+    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
+    {% for entry in latestBlogEntry %}
+    <li><a href="{{ entry.url }}">Blog</a></li>
+    {% endfor %}
+    <li><a href="http://kellyparks.info#work">Work</a></li>
+    <li><a href="http://kellyparks.info#contact">Contact</a></li>
+</ul>
+
+<header>
+    <p>Sorry!<br>Something broke.</p>
+</header>
+
+{% endblock %}

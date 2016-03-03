@@ -1,0 +1,131 @@
+{#
+ # Homepage template
+ # ---------------
+ #
+ # When this template gets loaded, it will be because someone has accessed
+ # http://yoursite.com/ (without any URI). Craft checks to see if you have
+ # a Single section set to be the Homepage (as you do, by default), and
+ # loads the section’s Template (this file). A special ‘entry’ variable
+ # will already be set for you, assigned to the Homepage entry.
+ #
+ # It's worth noting that even if you didn't have a Homepage Single section,
+ # as long as this template remains at craft/templates/index.html, it
+ # would still be the one to get loaded when accessing http://yoursite.com/,
+ # albeit without an ‘entry’ variable already set for you.
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://buildwithcraft.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block css %}
+<link rel="stylesheet" href="assets/css/index.css">
+{% endblock %}
+
+{% block main %}
+
+<ul id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
+    {% for entry in latestBlogEntry %}
+    <li><a href="{{ entry.url }}">Blog</a></li>
+    {% endfor %}
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+
+<header id="home">
+    <h1>Hello.<br>I'm Kelly Parks,</h1>
+    <p>a web development student at SAIT.</p>
+</header>
+
+<section class="about" id="about">
+<h2>About</h2>
+<p>{{ entry.aboutSummary }}</p>
+</section>
+
+<section class="blog" id="blog">
+    <h2>Blog</h2>
+    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
+    {% if latestBlogEntry|length %}
+    {% for entry in latestBlogEntry %}
+    <h3>{{ entry.entryTitle }}</h3>
+    <time datetime="2016-01">{{ entry.entryPublishedDate | date('F j, Y') }}</time>
+    {% for asset in entry.mainEntryImage %}
+        <img src="{{ asset.getUrl }}" alt="{{ asset.title }}" />
+    {% endfor %}
+    <p>{{ entry.entryBody|hacksaw(cutoff='</p>', allow='<strong><em><a>') }}</p>
+    <a href="{{ entry.url }}" id="archiveButton">Continue Reading</a>
+    {% endfor %}
+{% endif %}
+</section>
+
+<section class="work" id="work">
+    <h2>Work</h2>
+    <p>{{ entry.workintroduction }}</p>
+
+{% for entry in craft.entries.section('projects').limit(10) %}
+    
+<div class="work-container">
+    <h3>{{ entry.projectTitle }}</h3>
+	<div class="projectImage">
+        <a class="image" href="{{ entry.projectLink }}" target="_blank">
+        {% for asset in entry.projectMainImage %}
+            <img src="{{ asset.getURL }}" alt="{{ asset.title }}">
+        {% endfor %}
+        </a>
+	</div>
+	<section class="projectDescription">
+        <p>{{ entry.projectDescription }}</p>
+    </section>
+    </div>
+
+{% endfor %}
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>{{ entry.contactIntroduction }}</p>
+
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+<form method="post" action="" accept-charset="UTF-8" id="contactForm">
+    {{ getCsrfInput() }}
+    <input type="hidden" name="action" value="contactForm/sendMessage">
+    <input type="hidden" name="redirect" value="thank-you">
+
+    <label for="fromName">Name</label>
+    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+    <label for="fromEmail">Email</label>
+    <input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" required>
+    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <label for="message">Message</label>
+    <textarea rows="10" cols="40" id="message" name="message" required>{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+    {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+    <input type="submit" value="Send">
+    
+</form>
+
+</section>
+
+{% endblock main %}

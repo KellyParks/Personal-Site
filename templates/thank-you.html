@@ -1,0 +1,25 @@
+{% extends "_layout" %}
+
+{% block css %}
+<link rel="stylesheet" href="assets/css/thank-you.css">
+{% endblock %}
+
+{% block main %}
+
+<ul id="menu">
+    <li><a href="http://kellyparks.info#home">Home</a></li>
+    <li><a href="http://kellyparks.info#about">About</a></li>
+    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
+    {% for entry in latestBlogEntry %}
+    <li><a href="{{ entry.url }}">Blog</a></li>
+    {% endfor %}
+    <li><a href="http://kellyparks.info#work">Work</a></li>
+    <li><a href="http://kellyparks.info#contact">Contact</a></li>
+</ul>
+
+<header>
+    <h1>Thank you!</h1>
+    <p>I'll reply within 48 hours.</p>
+</header>
+
+{% endblock %}

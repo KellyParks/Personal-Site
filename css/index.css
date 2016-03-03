@@ -1,0 +1,345 @@
+/* default (mobile) */
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;
+}
+
+body {
+	font-size: 100%;
+	color: #515151;
+	margin: 0;
+}
+
+header {
+	background-image: url("../images/background2.png");
+	background-position: center center;
+	background-size: cover;
+	padding: 15% 1% 10% 1%;
+	text-align: center;
+	font-weight: 400;
+	color: white;
+}
+
+header h1 {
+	font-weight: inherit;
+	margin: 0% 0% 1% 0;
+}
+
+header p {
+	margin: 2% 1% 0 1%;
+	color: inherit;
+	font-weight: inherit;
+	font-size: 1.4em;
+}
+
+/*Menu*/
+
+.js #menu {
+	display:none;
+}
+	
+.js .slicknav_menu {
+	display:block;
+	background: #515151 none repeat scroll 0 0;
+}
+
+.slicknav_btn {
+	background-color: transparent;
+}
+
+.slicknav_nav {
+	font-size: 1.3em;
+}
+
+/*Basic text styles*/
+
+h2 {
+	font-weight: 400;
+	font-size: 1.5em;
+	margin: 11% 0 3% 0;
+	color: #515151;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 1.1em;
+	margin: 0 0 1% 0;
+	color: #515151;
+}
+
+p {
+	font-weight: 300;
+	line-height: 1.4;
+	margin: 0 0 0 0;
+	color: #515151;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	/*hyphens not working for chrome?*/
+}
+
+/*all section sizing and position */
+
+section {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.1em;
+}
+
+/* blog section */
+
+.blog time {
+	text-align: right;
+	display: block;
+	margin: 3% 0 0 0;
+}
+
+.blog img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin: 5% 0 6% 0;
+}
+
+.blog p {
+	margin: 0 0 8% 0;
+}
+
+.blog a#archiveButton {
+	color: #000;
+	font-weight: 400;
+	border-radius: 5px;
+	width: 100%;
+	background: #F0F0F0;
+	border: 2px outset threedlightshadow;
+	margin: 3% auto 0;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	padding: 2% 0;
+	font-size: 1.15em;
+	clear: both;
+}
+
+/* work section */
+
+.work-container {
+	width: 100%;
+	display: block;
+	margin: 4% auto 0 auto;
+}
+
+.work-container h3 {
+	margin: 0 0 3% 0;
+}
+
+.projectImage {
+	width: 100%;
+	display: block;
+	vertical-align: middle;
+	margin: 0 0 3% 0;
+}
+
+.projectImage img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.projectDescription {
+	width: 100%;
+	display: block;
+	vertical-align: middle;
+	padding: 1% 0 0 0;
+	font-size: inherit;
+}
+
+/* contact section */
+
+form {
+	margin: 5% 0 0 0;
+	color: #515151;
+}
+
+label {
+	margin: 1% 0 0.2% 0;
+}
+
+label, label[for="message"], #message {
+	display: block;
+	border-radius: 5px;
+}
+
+input:not([type=submit]) {
+	width: 98%;
+	display: block;
+	height: 1.7em;
+	border-radius: 5px;
+	font-size: 0.9em;
+	padding: 0 1%;
+}
+
+input[type="submit"] {
+	width: 100%;
+	font-size: 1.15em;
+	margin: 10% auto 0;
+	border-radius: 5px;
+	padding: 2%;
+	display: block;
+	background-color: #F0F0F0;
+	border: 2px outset threedlightshadow;
+}
+
+textarea {
+	width: 98%;
+	height: 6em;
+	resize: none;
+	padding: 0.5% 1%;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+/* Footer & Social Media */
+
+footer {
+	clear: both;
+	background-color: #515151;
+	margin-top: 8%;
+}
+
+footer ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.socialmedia {
+    width: 30px;
+    margin:25px;
+    display: inline-block;
+}
+
+@media only screen and (min-width: 28em){
+
+	header h1 {
+		font-weight: inherit;
+		margin: 0% 0% 1% 0;
+		font-size: 3em;
+	}
+
+	header p {
+		margin: 2% 1% 0 1%;
+		color: inherit;
+		font-weight: inherit;
+		font-size: 1.9em;
+	}
+}
+
+/*resize blog section*/
+@media only screen and (min-width: 34em){
+/* blog section */
+
+.blog time {
+	text-align: right;
+	display: block;
+	margin: 1% 0 3% 0;
+}
+
+.blog img {
+	width: 43%;
+	max-width: 270px;
+	height: auto;
+	float: right;
+	margin: 0 0 1% 2%;
+}
+}
+
+
+/*small tablet*/
+@media only screen and (min-width: 46em) {
+
+header h1 {
+	font-weight: inherit;
+	margin: 0% 0% 1% 0;
+	font-size: 3.3em;
+}
+
+header p {
+	margin: 2% 1% 0 1%;
+	font-weight: inherit;
+	font-size: 2.2em;
+}
+
+section {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.24em;
+}
+
+input[type="submit"] {
+	width: 70%;
+	margin: 6% auto 0;
+}
+
+section {
+	max-width: 35em;
+}
+
+/* work section */
+
+.work-container {
+	width: 100%;
+	display: block;
+	margin: 4% auto 0 auto;
+}
+
+.projectImage {
+	width: 49%;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 3% 0 0;
+}
+
+.projectImage img {
+	width: 100%;
+	height: auto;
+}
+
+.projectDescription {
+	width: 47%;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1% 0 0 0;
+	font-size: .9em;
+}
+}
+
+@media only screen and (min-width: 60em){
+
+
+	header h1 {
+		font-weight: inherit;
+		margin: 0% 0% 1% 0;
+		font-size: 4em;
+	}
+
+	header p {
+		margin: 2% 1% 0 1%;
+		font-weight: inherit;
+		font-size: 3em;
+	}
+}

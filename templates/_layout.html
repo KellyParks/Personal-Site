@@ -1,0 +1,45 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Kelly Parks</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/assets/slicknav/slicknav.css">
+
+{% block css %}{% endblock %}
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+</head>
+
+{% block main %}
+
+{% endblock %}
+
+<footer>
+    <ul>
+        <li><a href="https://twitter.com/MissKelly_K"><img class="socialmedia" src="/assets/images/twitter_web.png" alt="Twitter logo"></a></li>
+        <li><a href="https://www.linkedin.com/in/kellyparks111"><img class="socialmedia" src="/assets/images/LinkedIn_web.png" alt="LinkedIn logo"></a></li>
+    </ul>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="/assets/slicknav/jquery.slicknav.js"></script>
+<script>
+	$(function(){
+		$('#menu').slicknav();
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* default (mobile) */
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Muli', sans-serif;
+	font-weight: 300;
+}
+
+body {
+	font-size: 100%;
+	color: #515151;
+	margin: 0;
+}
+
+header {
+	background-image: url("../images/background2.png");
+	background-position: center center;
+	background-size: cover;
+	padding: 15% 1% 10% 1%;
+	text-align: center;
+	font-weight: 400;
+	color: white;
+}
+
+header h1 {
+	font-weight: inherit;
+	font-size: 3.8em;
+	margin: 0% 0% 1% 0;
+}
+
+/*Menu*/
+
+.js #menu {
+	display:none;
+}
+	
+.js .slicknav_menu {
+	display:block;
+	background: #515151 none repeat scroll 0 0;
+}
+
+.slicknav_btn {
+	background-color: transparent;
+}
+
+.slicknav_nav {
+	font-size: 1.3em;
+}
+
+/*Basic text styles*/
+
+h2 {
+	font-weight: 400;
+	font-size: 1.5em;
+	margin: 11% 0 3% 0;
+	color: #515151;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 1.1em;
+	margin: 0 0 1% 0;
+	color: #515151;
+}
+
+p {
+	font-weight: 300;
+	line-height: 1.4;
+	margin: 0 0 0 0;
+	color: #515151;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	/*hyphens not working for chrome?*/
+}
+
+main {
+	width: 100%;
+	font-size: 1.1em;
+}
+
+article {
+	width: 90%;
+	max-width: 34em;
+	margin: 0 auto;
+}
+
+div.container {
+	width: 100%;
+	text-align: right;
+}
+
+div.container time {
+	padding: 5% 0 8% 0;
+	display: block;
+	font-size: .9em;
+}
+
+section#journalEntryTitle {
+	width: 100%;
+	text-align: left;
+}
+
+section#journalEntryTitle p {
+	font-size: .9em;
+	border-top: 1px solid #000;
+	padding-top: 3%;
+	font-style: italic;
+}
+
+section#journalEntry {
+	width: 100%;
+}
+
+section#journalEntry h4 {
+	font-size: 1.2em;
+}
+
+section#journalEntry p {
+	margin: 0 0 5% 0;
+}
+
+section#journalEntry ul {
+	margin: 0 0 5% 10%;
+	font-size: inherit;
+}
+
+section#journalEntry img {
+	width: 100%;
+	height: auto;
+	margin: 0 0 2% 0;
+}
+
+/*Aside*/
+
+
+aside {
+	width: 100%;
+	max-width: 34em;
+	margin: 0 auto 5% auto;
+}
+
+aside h2 {
+	margin: 8% 0 2% 0;
+	text-align: center;
+}
+
+aside ul {
+	padding: 0;
+}
+
+aside li {
+	width: 90%;
+	margin: 0 auto 0 auto;
+	list-style-type: none;
+	border-bottom: 1px dotted rgba(160, 160, 160, 0.3);
+}
+
+aside li a {
+	color: #555;
+	display: block;
+	margin-bottom: 5%; 
+}
+
+aside li img {
+	height: auto;
+	width: 25%;
+	max-width: 100px;
+	display: inline-block;
+	margin: 2% 5% 2% 0;
+	vertical-align: middle;
+}
+
+aside li div#listcontainer {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70%;
+}
+
+aside li h3 {
+	font-size: 1em;
+}
+
+aside li time {
+	display: none;
+}
+
+/* Footer & Social Media */
+
+footer {
+	clear: both;
+	background-color: #515151;
+}
+
+footer ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.socialmedia {
+    width: 30px;
+    margin:25px;
+    display: inline-block;
+}
+
+@media only screen and (min-width: 36em) {
+
+	section#journalEntry img {
+	width: 43%;
+	max-width: 365px;
+	height: auto;
+	margin: 0 0 2% 2%;
+	float: right;
+}
+}
+
+@media only screen and (min-width: 57em){
+
+.main-aside-container{
+	max-width: 60em;
+	margin: 0 auto;
+}
+
+main {
+	width: 70%;
+	margin: 0 auto;
+	float: right;
+}
+
+aside {
+	width: 30%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	float: left;
+}
+
+
+
+}
+
+
+
+
+
