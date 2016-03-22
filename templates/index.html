@@ -41,9 +41,27 @@
     <p>a web development student at SAIT.</p>
 </header>
 
-<section class="about" id="about">
-<h2>About</h2>
-<p>{{ entry.aboutSummary }}</p>
+<section class="work" id="work">
+    <h2>Work</h2>
+    <p>{{ entry.workintroduction }}</p>
+
+{% for entry in craft.entries.section('projects').limit(10) %}
+    
+<div class="work-container">
+    <h3><a href="{{ entry.headingLink }}">{{ entry.projectTitle }}</a></h3>
+    <div class="projectImage">
+        <a class="image" href="{{ entry.projectLink }}" target="_blank">
+        {% for asset in entry.projectMainImage %}
+            <img src="{{ asset.getURL }}" alt="{{ asset.title }}">
+        {% endfor %}
+        </a>
+    </div>
+    <section class="projectDescription">
+        <p>{{ entry.projectDescription }}</p>
+    </section>
+    </div>
+
+{% endfor %}
 </section>
 
 <section class="blog" id="blog">
@@ -62,27 +80,9 @@
 {% endif %}
 </section>
 
-<section class="work" id="work">
-    <h2>Work</h2>
-    <p>{{ entry.workintroduction }}</p>
-
-{% for entry in craft.entries.section('projects').limit(10) %}
-    
-<div class="work-container">
-    <h3>{{ entry.projectTitle }}</h3>
-	<div class="projectImage">
-        <a class="image" href="{{ entry.projectLink }}" target="_blank">
-        {% for asset in entry.projectMainImage %}
-            <img src="{{ asset.getURL }}" alt="{{ asset.title }}">
-        {% endfor %}
-        </a>
-	</div>
-	<section class="projectDescription">
-        <p>{{ entry.projectDescription }}</p>
-    </section>
-    </div>
-
-{% endfor %}
+<section class="about" id="about">
+<h2>About</h2>
+<p>{{ entry.aboutSummary }}</p>
 </section>
 
 <section class="contact" id="contact">
