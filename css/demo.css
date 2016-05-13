@@ -1,0 +1,310 @@
+/* default (mobile) */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  font-size: 100%;
+  color: #515151;
+  margin: 0;
+}
+
+html, body {
+  -webkit-tap-highlight-color: transparent; /* disable webkit tap highlight */
+  overflow-x: hidden;
+}
+
+header {
+  background-image: url('../img/background2.png');
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  font-weight: 400;
+  color: white;
+}
+
+header a {
+  color: white;
+}
+
+header h1 {
+  clear: both;
+  font-weight: inherit;
+  margin: 0 auto;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  font-size: 2.3em;
+}
+
+header p {
+  margin: 0 auto;
+  padding: 0 0.5em 0.8em 0.5em;
+  color: inherit;
+  font-weight: inherit;
+  font-size: 1.5em;
+}
+
+header p:last-child {
+  margin: 0 auto;
+  padding: 0 0.5em 2em 0.5em;
+  color: inherit;
+  font-weight: 300;
+  font-size: 1.2em;
+  max-width: 35em;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  float: left;
+  height: 35px;
+  margin: 1em 0 0 1em;
+}
+
+#container {
+  margin: 0 auto;
+  padding: 0.5em;
+}
+
+/* Menu Button */
+.menu-btn {
+  width: 60px;
+  padding: 10px;
+  cursor: pointer;
+  float: right;
+  opacity: 0.6;
+}
+.menu-btn:hover {
+  opacity: 1;
+}
+
+section {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1em;
+}
+
+h2 {
+  display: table;
+  white-space: nowrap;
+  font-size: 1.5em;
+  margin: 1.5em 0 1em 0;
+}
+
+h2:before, h2:after {
+  border-top: 2px solid #3b4357;
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 0.5em;
+  width: 50%;
+}
+
+h2:before {
+  right: 5%;
+}
+
+h2:after{
+  left: 5%;
+}
+
+/*h3 {
+  font-weight: 300;
+  font-size: 1.1em;
+  margin: 0 0 1% 0;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #3b4357;
+}
+
+h3 a {
+  display: block;
+  padding: 0.5em;
+  color: #3b4357;
+  text-decoration: none;
+}*/
+
+h3 {
+  margin: 1.9em 0 0.5em 0;
+}
+
+h3 a {
+  display: table;
+  white-space: nowrap;
+  font-size: 1em;
+  font-weight: 300;
+  padding: 0.5em 0;
+  text-decoration: none;
+  color: #3b4357;
+}
+
+h3 a:before, h3 a:after {
+  border-top: 1px solid #3b4357;
+  content: '';
+  display: table-cell;
+  position: relative;
+  top: 0.65em;
+}
+
+h3 a:after {
+  left: 2%;
+  width: 100%;
+}
+
+.featured-projects-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 65em;
+  margin: 0 auto;
+}
+
+.recent-projects p {
+  max-width: 65em;
+  margin: 0 auto;
+}
+
+.recent-posts-container {
+    max-width: 65em;
+  margin: 0 auto;
+}
+
+.recent-projects article {
+  width: 100%;
+  overflow: hidden;
+}
+
+.recent-projects img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.recent-blog img {
+  width: 100%;
+  margin: 0 0 1em 0;
+}
+
+.recent-blog time {
+    display: block;
+    margin-bottom: 1em;
+    text-align: right;
+  }
+
+footer {
+  clear: both;
+  background-color: #3B4357;
+  margin-top: 8%;
+}
+
+footer ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.socialmedia {
+    width: 30px;
+    margin:25px;
+    display: inline-block;
+}
+
+/* Footer */
+.site-footer {
+  position: relative;
+  border-top: 1px solid #EEE;
+  color: #999;
+  padding: 10px;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.recent-blog h3 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+}
+
+@media (min-width: 40em){
+  .recent-blog img {
+  width: 50%;
+  float: right;
+}
+}
+
+@media (min-width: 60em){
+  .main-nav {
+    background-color: white;
+    box-shadow: inset 0 -10px 8px -10px #000000;
+    border-bottom: 5px solid #3b4357;
+  }
+
+  header h1 {
+    padding-top: 1.2em;
+  }
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  ul li {
+    font-size: 1.2em;
+    width: 16%;
+    text-align: center;
+  }
+
+  ul a {
+    display: block;
+    color: #3b4357;
+    text-decoration: none;
+    padding: 1em;
+    transition: background-color 1s ease-out;
+  }
+
+  ul a:hover {
+    background-color: #3b4357;
+    color: white;
+  }
+
+  .menu-btn{
+      display: none;
+  }
+
+  .featured-projects-container {
+  display: flex;
+  flex-direction: row;
+  /*flex-wrap: wrap;*/
+  justify-content: space-between;
+}
+
+.recent-projects article {
+  width: 30%;
+  overflow: hidden;
+}
+
+.recent-blog img {
+  width: 45%;
+}
+
+  
+}
+
+/*# sourceMappingURL=demo.css.map */

@@ -1,0 +1,25 @@
+{% extends "_layout" %}
+
+{% block main %}
+
+<section class="recent-projects">
+  <h2>Work</h2>
+  <p>{{ entry.workintroduction }}</p>
+  <div class="featured-projects-container">
+    {% for entry in craft.entries.section('projects').limit(10) %}
+    <article>
+      <h3><a href="{{ entry.headingLink }}">{{ entry.projectTitle }}</a></h3>
+      <div class="project-image-container">
+        <a class="image" href="{{ entry.projectLink }}" target="_blank">
+          {% for asset in entry.projectMainImage %}
+            <img src="{{ asset.getURL }}" alt="{{ asset.title }}">
+          {% endfor %}
+        </a>
+      </div>
+        <p>{{ entry.projectDescription }}</p>
+      </article>
+  {% endfor %}
+</section>
+
+{% endblock %}
+

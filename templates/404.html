@@ -25,19 +25,7 @@
 
 {% block main %}
 
-<ul id="menu">
-    <li><a href="http://kellyparks.info#home">Home</a></li>
-    <li><a href="http://kellyparks.info#about">About</a></li>
-    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
-    {% for entry in latestBlogEntry %}
-    <li><a href="{{ entry.url }}">Blog</a></li>
-    {% endfor %}
-    <li><a href="http://kellyparks.info#work">Work</a></li>
-    <li><a href="http://kellyparks.info#contact">Contact</a></li>
-</ul>
-
-<header>
-    <p>Sorry!<br>Something broke.</p>
-</header>
+<p>Sorry!<br>Something broke.
+</p>
 
 {% endblock %}

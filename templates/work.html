@@ -1,0 +1,40 @@
+{% extends "_layout" %}
+
+{% block seo %}
+
+<meta name="description" content="Browse my portfolio and check out the projects I've worked on so far.">
+<meta name="keywords" content="Kelly Parks, web developer, portfolio, work, HTML, CSS, JavaScript, PHP">
+
+{% endblock seo %}
+
+{% block main %}
+
+<section class="work-projects">
+  <h2>Work</h2>
+  <p>{{ entry.workintroduction }}</p>
+  <div class="all-projects-container">
+    {% for entry in craft.entries.section('projects').limit(10) %}
+    <article>
+      <h3><a href="{{ entry.headingLink }}">{{ entry.projectTitle }}</a></h3>
+      <div class="test-flex">
+        <div class="work-project-image-container">
+          <a class="image" href="{{ entry.projectLink }}" target="_blank">
+            {% for asset in entry.projectMainImage %}
+              <img src="{{ asset.getURL }}" alt="{{ asset.title }}">
+            {% endfor %}
+          </a>
+        </div>
+        <div class="work-project-info-container">
+          {{ entry.projectDescription }}
+          <!-- <input type="button" value="button 1">
+          <input type="button" value="button 2">
+          <input type="button" value="button 3"> -->
+        </div>
+      </div>
+      </article>
+  {% endfor %}
+</div>
+</section>
+
+{% endblock %}
+

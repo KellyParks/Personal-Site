@@ -1,45 +1,26 @@
 {% extends "_layout" %}
 
-{% block css %}
-<link rel="stylesheet" href="/assets/css/blog.css">
-{% endblock %}
+{% block seo %}
+
+<meta name="description" content="Read my blog to find out what programming books I like and my thoughts about web development.">
+<meta name="keywords" content="Kelly Parks, web development, developer, blog, content, books, helpful tools, article">
+
+{% endblock seo %}
 
 {% block main %}
-
-<ul id="menu">
-    <li><a href="http://kellyparks.info#home">Home</a></li>
-    <li><a href="http://kellyparks.info#about">About</a></li>
-    {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
-    {% for entry in latestBlogEntry %}
-    <li><a href="{{ entry.url }}">Blog</a></li>
-    {% endfor %}
-    <li><a href="http://kellyparks.info#work">Work</a></li>
-    <li><a href="http://kellyparks.info#contact">Contact</a></li>
-</ul>
-<body>
-<header>
-    <h1>Blog</h1>
-</header>
-<div class="main-aside-container">
-	<main>
-		<article>
-		<div class="container">
-			<section id="journalEntryTitle">
-				<h2>{{ entry.entryTitle }}</h2>
-				<p>{{ entry.entrySubtitle }}</p>
-			</section>
-			<time datetime="{{ entry.entryPublishedDate }}">{{ entry.entryPublishedDate | date('F j, Y') }}</time>
-		</div>
-			<section id="journalEntry">
-				{% for asset in entry.mainEntryImage %}
-  				<img src="{{ asset.getUrl }}" alt="{{ asset.title }}" />
-			{% endfor %}
-			{{ entry.entryBody }}
-		</section>
-		</article>
-</main>
-<aside>
-	<h2>Posts</h2>
+<h2>Blog Posts</h2>
+<div class="blog-page-container">
+<article class="active-blog">
+	<h3><a href="">{{ entry.entryTitle }}</a></h3>
+	<p>{{ entry.entrySubtitle }}</p>
+	<time datetime="{{ entry.entryPublishedDate }}">{{ entry.entryPublishedDate | date('F j, Y') }}</time>
+		{% for asset in entry.mainEntryImage %}
+  		<img src="{{ asset.getUrl }}" alt="{{ asset.title }}" />
+		{% endfor %}
+		{{ entry.entryBody }}
+</article>
+<aside class="other-posts">
+	<h3>Other Posts</h3>
 	<ul>
 		{% set allEntries = craft.entries.section('blog') %}
 
@@ -47,7 +28,7 @@
 
 		{% for asset in entry.mainEntryImage %}
 
-			<li><a href=" {{ entry.url }}"><img src="{{ asset.getUrl }}" alt="{{ asset.title }}"><div id="listcontainer"><h3>{{ entry.entryTitle }}</h3><time datetime="{{ entry.entryPublishedDate }}">{{ entry.entryPublishedDate | date('F j, Y') }}</time></div></a></li>
+			<li><a href=" {{ entry.url }}"><img src="{{ asset.getUrl }}" alt="{{ asset.title }}"><div><h4>{{ entry.entryTitle }}</h4><time datetime="{{ entry.entryPublishedDate }}">{{ entry.entryPublishedDate | date('F j, Y') }}</time></div></a></li>
 
 		{% endfor %}
 
@@ -56,4 +37,3 @@
 	</aside>
 </div>
 {% endblock %}
-

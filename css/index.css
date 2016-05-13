@@ -37,25 +37,6 @@ header p {
 	font-size: 1.4em;
 }
 
-/*Menu*/
-
-.js #menu {
-	display:none;
-}
-	
-.js .slicknav_menu {
-	display:block;
-	background: #515151 none repeat scroll 0 0;
-}
-
-.slicknav_btn {
-	background-color: transparent;
-}
-
-.slicknav_nav {
-	font-size: 1.3em;
-}
-
 /*Basic text styles*/
 
 h2 {
@@ -138,6 +119,14 @@ section {
 
 .work-container h3 {
 	margin: 0 0 3% 0;
+}
+
+.work-container a {
+	color: #4F5D6B;
+}
+
+.work-container a:hover {
+	color: #708094;
 }
 
 .projectImage {

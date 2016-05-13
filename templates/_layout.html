@@ -12,15 +12,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Kelly Parks | Web Developer</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/assets/slicknav/slicknav.css">
-{% block css %}{% endblock %}
-<link rel="stylesheet" href="/assets/css/menu.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-<script>
+  <meta charset="utf-8">
+  <title>Kelly Parks | Web Developer</title>
+  <meta name="description" content="Portfolio site of a web development student at SAIT.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block seo %}{% endblock %}
+  <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+  {% block css %}{% endblock %}
+  <!-- Pushy Menu CSS -->
+  <link rel="stylesheet" href="/assets/css/pushy.css">
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- Google Analytics -->
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -28,28 +34,52 @@
 
   ga('create', 'UA-74051811-1', 'auto');
   ga('send', 'pageview');
-
-</script>
+  </script>
 </head>
+<body>
+  <div class="main-nav">
+    <!-- <img src="/assets/images/logo3.svg" class="logo" alt=""> -->
+    <div class="menu-btn">
+      <img src="/assets/images/hamburger2.svg" alt="Image description.">
+    </div>
+    <!-- Pushy Menu -->
+    <nav class="pushy pushy-right">
+      <ul>
+        <li class="pushy-link"><a href="http://www.kellyparks.info">Home</a></li>
+        <li class="pushy-link"><a href="http://www.kellyparks.info/work">Work</a></li>
+        <!-- <li class="pushy-link"><a href="#">Resume</a></li> -->
+        {% set latestBlogEntry = craft.entries.section('blog').limit(1) %}
+        {% for entry in latestBlogEntry %}
+        <li class="pushy-link"><a href="{{ entry.url }}">Blog</a></li>
+        {% endfor %}
+        <li class="pushy-link"><a href="http://www.kellyparks.info/about">About</a></li>
+        <li class="pushy-link"><a href="http://www.kellyparks.info/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <header class="site-header push"> 
+        <h1>Hello. <br>I'm Kelly Parks,</h1>
+        <p>a web development student at SAIT.</p>
+        <p>View my <a href="http://www.kellyparks.info/work">work</a> on <a href="https://github.com/KellyParks">GitHub</a>, see the tutorials and resources I like on <a href="https://twitter.com/MissKelly_K">Twitter</a>, or learn about my skills on <a href="https://ca.linkedin.com/in/kellykparks">LinkedIn</a>.</p>
+  </header>
+  <!-- Site Overlay -->
+  <div class="site-overlay"></div>
+  <!-- Main Content -->
+  <div id="container">
 
 {% block main %}
 
 {% endblock %}
 
-<footer>
+  </div>
+  <footer class="site-footer push">
     <ul>
-        <li><a href="https://github.com/KellyParks"><img class="socialmedia" src="/assets/images/github-logo.png" alt="Twitter logo"></a></li>
-        <li><a href="https://twitter.com/MissKelly_K"><img class="socialmedia" src="/assets/images/twitter_web.png" alt="Twitter logo"></a></li>
-        <li><a href="https://www.linkedin.com/in/kellyparks111"><img class="socialmedia" src="/assets/images/LinkedIn_web.png" alt="LinkedIn logo"></a></li>
+      <li><a href="https://github.com/KellyParks"><img class="socialmedia" src="/assets/images/github-logo.png" alt="GitHub logo"></a></li>
+      <li><a href="https://twitter.com/MissKelly_K"><img class="socialmedia" src="/assets/images/twitter_web.png" alt="Twitter logo"></a></li>
+      <li><a href="https://ca.linkedin.com/in/kellykparks"><img class="socialmedia" src="/assets/images/LinkedIn_web.png" alt="LinkedIn logo"></a></li>
     </ul>
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="/assets/slicknav/jquery.slicknav.js"></script>
-<script>
-	$(function(){
-		$('#menu').slicknav();
-	});
-</script>
+  </footer>
+  <!-- Pushy JS -->
+  <script src="/assets/js/pushy.min.js"></script>
 </body>
 </html>
