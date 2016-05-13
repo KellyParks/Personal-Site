@@ -1,0 +1,55 @@
+{% extends "_layout" %}
+
+{% block seo %}
+
+<meta name="description" content="Contact me to inquire about work opportunities, recommend a good book, or just to say hello.">
+<meta name="keywords" content="Kelly Parks, web development, developer, contact, form, connect, employment">
+
+{% endblock seo %}
+
+{% block main %}
+
+<h2>Contact</h2>
+<div class="contact-page-container">
+    <p>{{ entry.contactIntroduction }}</p>
+
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+<form method="post" action="" accept-charset="UTF-8" id="contactForm">
+    {{ getCsrfInput() }}
+    <input type="hidden" name="action" value="contactForm/sendMessage">
+    <input type="hidden" name="redirect" value="thank-you">
+
+    <label for="fromName">Name</label>
+    <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+    <label for="fromEmail">Email</label>
+    <input id="fromEmail" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" required>
+    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+    {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+    <label for="message">Message</label>
+    <textarea rows="10" cols="40" id="message" name="message" required>{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+    {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+    <input type="submit" value="Send">
+    
+</form>
+
+</div>
+
+{% endblock %}

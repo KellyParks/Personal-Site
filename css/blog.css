@@ -31,25 +31,6 @@ header h1 {
 	margin: 0% 0% 1% 0;
 }
 
-/*Menu*/
-
-.js #menu {
-	display:none;
-}
-	
-.js .slicknav_menu {
-	display:block;
-	background: #515151 none repeat scroll 0 0;
-}
-
-.slicknav_btn {
-	background-color: transparent;
-}
-
-.slicknav_nav {
-	font-size: 1.3em;
-}
-
 /*Basic text styles*/
 
 h2 {

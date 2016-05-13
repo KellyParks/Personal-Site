@@ -1,0 +1,52 @@
+.slicknav_menu {
+	display:none;
+}
+
+#menu {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#menu li {
+	list-style: none;
+	float: left;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-weight: 400;
+	font-size: 1.1em;
+	width: 20%;
+}
+
+#menu li a {
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	color: #515151;
+	padding: 0.6em 0;
+}
+
+#menu li a:hover {
+	background-color: white;
+}
+
+
+@media only screen and (max-width: 46em) {
+
+.js #menu {
+	display:none;
+}
+	
+.js .slicknav_menu {
+	display:block;
+	background: #515151 none repeat scroll 0 0;
+}
+
+.slicknav_btn {
+	background-color: transparent;
+}
+
+.slicknav_nav {
+	font-size: 1.3em;
+}
+
+}
